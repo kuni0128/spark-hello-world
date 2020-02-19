@@ -2,6 +2,7 @@ import spark.Spark.get
 
 fun main(args: Array<String>) {
     get("/hello") { req, res ->
-        "Hello, world!"
+        val name: String? = req.queryParams("name")
+        "Hello, ${name ?: "world"}!"
     }
 }
